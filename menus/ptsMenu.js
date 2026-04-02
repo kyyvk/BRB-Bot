@@ -39,7 +39,7 @@ module.exports = () => {
       { label: 'UNAS PASIM', value: '1487374981175316510' },
       { label: 'UMB', value: '1487375500983926836' },
       { label: 'IWU', value: '1487375945655390248' },
-      { label: 'Yapari Aktripa', value: '1487376101041897532' },
+      { label: 'Yapari Aktripa', value: '1487376101041897532' }
     ]);
 
   return new ActionRowBuilder().addComponents(menu);

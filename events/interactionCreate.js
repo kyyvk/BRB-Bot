@@ -1,32 +1,6 @@
 const { Events } = require('discord.js');
 
-// =========================
-// 📂 NAVIGATION
-// =========================
-if (interaction.customId === 'select-category') {
-  if (interaction.values[0] === 'ptn') {
-    return interaction.update({
-      content: '🎓 Pilih PTN:',
-      components: [require('../menus/ptnMenu')()]
-    });
-  }
-
-  if (interaction.values[0] === 'pts') {
-    return interaction.update({
-      content: '🏫 Pilih PTS:',
-      components: [require('../menus/ptsMenu')()]
-    });
-  }
-
-  if (interaction.values[0] === 'prodi') {
-    return interaction.update({
-      content: '📚 Pilih Prodi:',
-      components: [require('../menus/prodiMenu')()]
-    });
-  }
-}
-
-// 👉 MASUKKAN SEMUA ROLE ID UNIVERSITAS DI SINI
+// 👉 ROLE IDS (ISI PUNYA KAMU)
 const UNIV_ROLE_IDS = [
   '1487362915031056540',
   '1487358938209980568',
@@ -35,21 +9,50 @@ const UNIV_ROLE_IDS = [
   '1487359265902559282',
   '1487360308602343434',
   '1487360519789744138',
+  '1487360740590485514',
   '1487360989811708005',
-  '1487363715794731088',
-  '1487369577309409372',
   '1487361903775977502',
+  '1487362081131855913',
+  '1487363715794731088',
+  '1487364554303475713',
+  '1487366130808131696',
+  '1487369296354214009',
+  '1487369577309409372',
+  '1487370056127217775',
+  '1487370165703282819',
+  '1487370492334833774',
+  '1487370589110009948',
+  '1487370661721669632',
+  '1487371383372513410',
+  '1487371555305422879',
+  '1487371713724285048',
+  '1487371812865183864',
+  '1487371961574359110',
+  '1487373201133539358',
+  '1487373349960286291',
+  '1487373698884440207',
+  '1487373956016111698',
+  '1487374120856453120',
+  '1487374981175316510',
+  '1487375500983926836',
+  '1487375945655390248',
+  '1487376101041897532',
   '1487363835193983066',
   '1487359184813949059',
   '1487360127316131993',
   '1487363295642914829',
+  '1487364227206484019',
   '1487364868070969394',
   '1487365036690374729',
   '1487365160099119295',
-  '1487364227206484019'
+  '1487365469362065528',
+  '1487365883507642368',
+  '1487366586242301982',
+  '1487367828557529108',
+  '1487367913311830097',
+  '1487368537562677299'
 ];
 
-// 👉 MASUKKAN SEMUA ROLE ID PRODI DI SINI
 const PRODI_ROLE_IDS = [
   '1487501135458861237',
   '1487501232493826231',
@@ -134,6 +137,8 @@ const PRODI_ROLE_IDS = [
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
+
+    // ❗ WAJIB: filter dulu
     if (!interaction.isStringSelectMenu()) return;
 
     const member = interaction.member;
@@ -142,23 +147,47 @@ module.exports = {
     try {
 
       // =========================
+      // 📂 NAVIGATION (INI YANG TADI ERROR)
+      // =========================
+      if (interaction.customId === 'select-category') {
+
+        if (interaction.values[0] === 'ptn') {
+          return interaction.update({
+            content: '🎓 Pilih PTN:',
+            components: [require('../menus/ptnMenu')()]
+          });
+        }
+
+        if (interaction.values[0] === 'pts') {
+          return interaction.update({
+            content: '🏫 Pilih PTS:',
+            components: [require('../menus/ptsMenu')()]
+          });
+        }
+
+        if (interaction.values[0] === 'prodi') {
+          return interaction.update({
+            content: '📚 Pilih Prodi:',
+            components: [require('../menus/prodiMenu')()]
+          });
+        }
+      }
+
+      // =========================
       // 🏫 UNIVERSITAS (LIMIT 1)
       // =========================
       if (interaction.customId === 'select-univ') {
 
         const hasRole = member.roles.cache.has(selectedRoleId);
 
-        // 👉 kalau klik role yang sama → remove
         if (hasRole) {
           await member.roles.remove(selectedRoleId);
-
           return interaction.reply({
             content: '❌ Role universitas dilepas!',
             ephemeral: true
           });
         }
 
-        // 👉 remove semua role univ lama
         const rolesToRemove = member.roles.cache.filter(role =>
           UNIV_ROLE_IDS.includes(role.id)
         );
@@ -167,7 +196,6 @@ module.exports = {
           await member.roles.remove(rolesToRemove);
         }
 
-        // 👉 add role baru
         await member.roles.add(selectedRoleId);
 
         return interaction.reply({
@@ -185,14 +213,12 @@ module.exports = {
 
         if (hasRole) {
           await member.roles.remove(selectedRoleId);
-
           return interaction.reply({
             content: '❌ Role prodi dilepas!',
             ephemeral: true
           });
         } else {
           await member.roles.add(selectedRoleId);
-
           return interaction.reply({
             content: '✅ Role prodi ditambahkan!',
             ephemeral: true
@@ -201,10 +227,10 @@ module.exports = {
       }
 
     } catch (error) {
-      console.error('❌ Role Error:', error);
+      console.error('❌ Error:', error);
 
       return interaction.reply({
-        content: '❌ Terjadi error saat mengatur role!',
+        content: '❌ Terjadi error!',
         ephemeral: true
       });
     }

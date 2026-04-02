@@ -18,7 +18,7 @@ module.exports = () => {
       { label: 'IPDN', value: '1487366586242301982' },
       { label: 'STT Tekstil', value: '1487367828557529108' },
       { label: 'Poltekesos', value: '1487367913311830097' },
-      { label: 'Stia Lan', value: '1487368537562677299' },
+      { label: 'Stia Lan', value: '1487368537562677299' }
     ]);
 
   return new ActionRowBuilder().addComponents(menu);
