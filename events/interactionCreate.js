@@ -1,5 +1,31 @@
 const { Events } = require('discord.js');
 
+// =========================
+// 📂 NAVIGATION
+// =========================
+if (interaction.customId === 'select-category') {
+  if (interaction.values[0] === 'ptn') {
+    return interaction.update({
+      content: '🎓 Pilih PTN:',
+      components: [require('../menus/ptnMenu')()]
+    });
+  }
+
+  if (interaction.values[0] === 'pts') {
+    return interaction.update({
+      content: '🏫 Pilih PTS:',
+      components: [require('../menus/ptsMenu')()]
+    });
+  }
+
+  if (interaction.values[0] === 'prodi') {
+    return interaction.update({
+      content: '📚 Pilih Prodi:',
+      components: [require('../menus/prodiMenu')()]
+    });
+  }
+}
+
 // 👉 MASUKKAN SEMUA ROLE ID UNIVERSITAS DI SINI
 const UNIV_ROLE_IDS = [
   '1487362915031056540',
@@ -102,7 +128,7 @@ const PRODI_ROLE_IDS = [
   '1487530361318805656',
   '1487530540809716023',
   '1487530587395723365',
-  '1487698141313634444',
+  '1487698141313634444'
 ];
 
 module.exports = {
