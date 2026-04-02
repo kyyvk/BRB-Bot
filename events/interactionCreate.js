@@ -154,21 +154,21 @@ module.exports = {
         if (interaction.values[0] === 'ptn') {
           return interaction.update({
             content: '🎓 Pilih PTN:',
-            components: [require('../menus/ptnMenu')()]
+            components: [require('../menus/ptnMenu.js')()]
           });
         }
 
         if (interaction.values[0] === 'pts') {
           return interaction.update({
             content: '🏫 Pilih PTS:',
-            components: [require('../menus/ptsMenu')()]
+            components: [require('../menus/ptsMenu.js')()]
           });
         }
 
         if (interaction.values[0] === 'prodi') {
           return interaction.update({
             content: '📚 Pilih Prodi:',
-            components: [require('../menus/prodiMenu')()]
+            components: [require('../menus/prodiMenu.js')()]
           });
         }
       }
