@@ -2,7 +2,7 @@ const { StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 
 module.exports = () => {
   const menu = new StringSelectMenuBuilder()
-    .setCustomId('select-prodi')
+    .setCustomId('prodi')
     .setPlaceholder('Pilih Prodi')
     .addOptions([
       { label: 'Matematika', value: '1487501135458861237' },

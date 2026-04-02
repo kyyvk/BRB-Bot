@@ -2,7 +2,7 @@ const { StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 
 module.exports = () => {
   const menu = new StringSelectMenuBuilder()
-    .setCustomId('select-univ')
+    .setCustomId('ptn')
     .setPlaceholder('Pilih PTN')
     .addOptions([
       { label: 'ITB', value: '1487363835193983066' },
