@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 const fs = require("fs");
 const path = require("path");
@@ -41,7 +41,7 @@ for (const file of eventFiles) {
 // =====================
 // READY
 // =====================
-client.once("ready", () => {
+client.once('clientReady', (client) => {
   console.log(`✅ Bot ready sebagai ${client.user.tag}`);
 });
 
