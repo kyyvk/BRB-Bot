@@ -1,11 +1,12 @@
 const { StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 
 module.exports = () => {
-  const menu = new StringSelectMenuBuilder()
-    .setCustomId('ptn')
-    .setPlaceholder('Pilih PTN')
-    .addOptions([
-      { label: 'ITB', value: '1487363835193983066' },
+  return new ActionRowBuilder().addComponents(
+    new StringSelectMenuBuilder()
+      .setCustomId('select-univ')
+      .setPlaceholder('Pilih PTN')
+      .addOptions([
+        { label: 'ITB', value: '1487363835193983066' },
       { label: 'Unpad', value: '1487359184813949059' },
       { label: 'UPI', value: '1487360127316131993' },
       { label: 'Uin Sgd', value: '1487363295642914829' },
@@ -19,7 +20,6 @@ module.exports = () => {
       { label: 'STT Tekstil', value: '1487367828557529108' },
       { label: 'Poltekesos', value: '1487367913311830097' },
       { label: 'Stia Lan', value: '1487368537562677299' }
-    ]);
-
-  return new ActionRowBuilder().addComponents(menu);
+      ])
+  );
 };
