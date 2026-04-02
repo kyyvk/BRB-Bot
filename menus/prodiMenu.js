@@ -15,7 +15,6 @@ module.exports = () => {
         { label: 'Teknik Lingkungan', value: '1487501848649928804' },  // ID ke-15
         { label: 'Teknik Geologi', value: '1487501888180977881' },     // ID ke-16
         { label: 'Teknik Kelautan', value: '1487519903228629173' },    // ID ke-23
-        { label: 'Informatika', value: '1487502302221697024' },        // ID ke-24
         { label: 'Sistem Informasi', value: '1487502339546943640' },   // ID ke-25
         { label: 'Teknologi Informasi', value: '1487502372962832394' },// ID ke-26
         { label: 'Kedokteran', value: '1487502587568722224' },         // ID ke-31
