@@ -14,7 +14,8 @@ module.exports = () => {
       { label: "Itenas", value: '1487360519789744138' },
       { label: "Widyatama", value: '1487360989811708005' },
       { label: 'Unikom', value: '1487363715794731088' },
-      { label: 'UNLA', value: '1487369577309409372' }
+      { label: 'UNLA', value: '1487369577309409372' },
+      { label: 'YPKP', value: '1487361903775977502' }
     ]);
 
   return new ActionRowBuilder().addComponents(menu);
