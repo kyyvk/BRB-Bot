@@ -26,7 +26,8 @@ module.exports = () => {
         { label: 'Ilmu Komunikasi', value: '1487503780860924025' },    // ID ke-44 (FIXED)
         { label: 'Hubungan Internasional', value: '1487503832027238532' }, // ID ke-45 (FIXED)
         { label: 'Psikologi', value: '1487504016832205060' },          // ID ke-50 (FIXED)
-        { label: 'Hukum', value: '1487504084138459177' }               // ID ke-51 (FIXED)
+        { label: 'Hukum', value: '1487504084138459177' },               // ID ke-51 (FIXED)
+        { label: 'Pendidikan Bahasa Inggris', value: '1487504523252732075' }
       ])
   );
 };
